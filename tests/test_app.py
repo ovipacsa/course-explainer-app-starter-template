@@ -36,5 +36,44 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Videos', response.data)
 
+    def test_contact_page_loads(self):
+        response = self.app.get('/contact')
+        self.assertEqual(response.status_code, 200)
+
+    def test_contact_page_content(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'CodeLearn Academy', response.data)
+        self.assertIn(b'hello@codelearnacademy.com', response.data)
+        self.assertIn(b'123 Dev Street', response.data)
+
+    def test_contact_social_links(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'twitter.com/codelearnacademy', response.data)
+        self.assertIn(b'github.com/codelearnacademy', response.data)
+        self.assertIn(b'linkedin.com/company/codelearnacademy', response.data)
+
+    def test_contact_mailto_link(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'mailto:hello@codelearnacademy.com', response.data)
+
+    def test_contact_form_renders(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'Send Us a Message', response.data)
+        self.assertIn(b'message_title', response.data)
+        self.assertIn(b'message_body', response.data)
+
+    def test_contact_form_post_redirects(self):
+        response = self.app.post('/contact', data={"message_title": "Hello", "message_body": "Test body"})
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/contact', response.headers['Location'])
+
+    def test_contact_form_post_flash(self):
+        response = self.app.post('/contact', data={"message_title": "Hello", "message_body": "Test body"}, follow_redirects=True)
+        self.assertIn(b"Your message has been sent", response.data)
+
+    def test_contact_form_get_no_flash(self):
+        response = self.app.get('/contact')
+        self.assertNotIn(b"Your message has been sent", response.data)
+
 if __name__ == '__main__':
     unittest.main()

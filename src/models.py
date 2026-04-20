@@ -22,6 +22,17 @@ videos = [
     Video("Git & GitHub Crash Course", "Learn the essentials of version control with Git and GitHub.", "RGOj5yH7evk"),
 ]
 
+contact_info = {
+    "org_name": "CodeLearn Academy",
+    "email": "hello@codelearnacademy.com",
+    "address": "123 Dev Street, San Francisco, CA 94105",
+    "socials": [
+        {"platform": "Twitter", "handle": "@codelearnacademy", "url": "https://twitter.com/codelearnacademy"},
+        {"platform": "GitHub", "handle": "github.com/codelearnacademy", "url": "https://github.com/codelearnacademy"},
+        {"platform": "LinkedIn", "handle": "linkedin.com/company/codelearnacademy", "url": "https://linkedin.com/company/codelearnacademy"},
+    ]
+}
+
 courses = [
     Course("Introduction to Python", "Learn the basics of Python programming.", "John Doe", "4 weeks",
            topics=["Variables and Data Types", "Control Flow", "Functions", "Modules"]),

@@ -48,3 +48,5 @@ All course data is hardcoded as `Course` instances in `models.py`. There is no d
 3. Navigate to and interact with the new feature to verify it works correctly.
 4. Take a screenshot of the working feature.
 5. Save the screenshot in the `test-output/` folder with a descriptive file name: (`feature-name-verification-YYYY_MM-DD.png`).
+
+This step ensures that all feature are visually verified and provides documentation of the work state of the application.

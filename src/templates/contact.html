@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact — Course Explainer{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h2>Contact Us</h2>
+  <p>We'd love to hear from you. Reach out through any of the channels below.</p>
+</section>
+
+<div class="contact-card">
+  <div class="contact-row">
+    <span class="contact-label">Organisation</span>
+    <span class="contact-value">{{ contact.org_name }}</span>
+  </div>
+  <div class="contact-row">
+    <span class="contact-label">Email</span>
+    <span class="contact-value">
+      <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+    </span>
+  </div>
+  <div class="contact-row">
+    <span class="contact-label">Address</span>
+    <span class="contact-value">{{ contact.address }}</span>
+  </div>
+</div>
+
+<section class="social-section">
+  <h3>Follow Us</h3>
+  <div class="social-links">
+    {% for social in contact.socials %}
+    <a class="social-link" href="{{ social.url }}" target="_blank" rel="noopener noreferrer">
+      {{ social.platform }}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="contact-form-section">
+  <h3 class="contact-form-heading">Send Us a Message</h3>
+  <p class="contact-form-hint">We'll reply to {{ contact.email }}</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+    <label for="message_title">Message Title</label>
+    <input type="text" id="message_title" name="message_title" required maxlength="200" placeholder="e.g. Course enquiry">
+
+    <label for="message_body">Message</label>
+    <textarea id="message_body" name="message_body" rows="6" required maxlength="2000" placeholder="Write your message here…"></textarea>
+
+    <button type="submit" class="btn-submit">Send Message</button>
+  </form>
+</section>
+{% endblock %}
