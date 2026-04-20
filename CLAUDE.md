@@ -35,3 +35,16 @@ This is a minimal Flask web application that displays programming courses. It us
 ### Data
 
 All course data is hardcoded as `Course` instances in `models.py`. There is no database, no external API, and no environment configuration required to run the app.
+
+### Unit Tests
+
+- Whenever you add any changes, add unit tests, and run and make sure the test passes.
+
+### Verify Changes with Playwright (MANDATORY)
+
+**After implementing any new feature, you MUST:**
+1. Start the Flask application (if not running - `python src/app.py`)
+2. Use the Playwright MCP tool to connect to the application at `http://127.0.0.1:5000`
+3. Navigate to and interact with the new feature to verify it works correctly.
+4. Take a screenshot of the working feature.
+5. Save the screenshot in the `test-output/` folder with a descriptive file name: (`feature-name-verification-YYYY_MM-DD.png`).
