@@ -1,0 +1,164 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "◆ CodeLearn" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: ◆
+        - generic [ref=e6]: CodeLearn
+      - navigation [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "Courses" [ref=e12] [cursor=pointer]:
+              - /url: /course/1
+          - listitem [ref=e13]:
+            - link "Videos" [ref=e14] [cursor=pointer]:
+              - /url: /videos
+          - listitem [ref=e15]:
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: /contact
+  - main [ref=e17]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: 🚀 New courses added weekly
+      - paragraph [ref=e21]: Welcome to CodeLearn Academy
+      - heading "Master Programming Skills That Matter" [level=1] [ref=e22]:
+        - text: Master Programming
+        - text: Skills That Matter
+      - paragraph [ref=e23]: Expert-crafted courses to take you from beginner to pro. Learn Python, Web Dev, Data Science, and more — at your own pace.
+      - generic [ref=e24]:
+        - link "Explore Courses" [ref=e25] [cursor=pointer]:
+          - /url: "#courses"
+        - link "Watch Free Videos →" [ref=e26] [cursor=pointer]:
+          - /url: /videos
+      - paragraph [ref=e27]:
+        - text: Join
+        - strong [ref=e33]: 10,000+
+        - text: learners already enrolled
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - img [ref=e37]
+        - generic [ref=e40]: "4"
+        - generic [ref=e41]: Courses
+      - generic [ref=e43]:
+        - img [ref=e45]
+        - generic [ref=e48]: "4"
+        - generic [ref=e49]: Expert Instructors
+      - generic [ref=e51]:
+        - img [ref=e53]
+        - generic [ref=e56]: 23+
+        - generic [ref=e57]: Weeks of Content
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]: 💻
+        - generic [ref=e62]:
+          - heading "Learn at Your Pace" [level=4] [ref=e63]
+          - paragraph [ref=e64]: Lifetime access — study whenever and wherever suits you.
+      - generic [ref=e65]:
+        - generic [ref=e66]: 🏆
+        - generic [ref=e67]:
+          - heading "Expert Instructors" [level=4] [ref=e68]
+          - paragraph [ref=e69]: Industry professionals who bring real-world experience.
+      - generic [ref=e70]:
+        - generic [ref=e71]: 🛠
+        - generic [ref=e72]:
+          - heading "Real-World Projects" [level=4] [ref=e73]
+          - paragraph [ref=e74]: Build a portfolio of projects employers actually want.
+    - generic [ref=e75]:
+      - generic [ref=e76]:
+        - heading "Available Courses" [level=2] [ref=e77]
+        - paragraph [ref=e78]: Handpicked courses to build real-world skills
+      - generic [ref=e80]:
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: Beginner
+            - generic [ref=e86]:
+              - img [ref=e87]
+              - text: "4.9"
+          - heading "Introduction to Python" [level=3] [ref=e89]
+          - paragraph [ref=e90]: Learn the basics of Python programming.
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - img [ref=e93]
+              - text: John Doe
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - text: 4 weeks
+          - generic [ref=e100]:
+            - generic [ref=e101]: Variables and Data Types
+            - generic [ref=e102]: Control Flow
+            - generic [ref=e103]: Functions
+            - generic [ref=e104]: +1 more
+          - link "View Course →" [ref=e105] [cursor=pointer]:
+            - /url: /course/1
+        - generic [ref=e108]:
+          - generic [ref=e109]:
+            - generic [ref=e110]: All Levels
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - text: "4.9"
+          - heading "Web Development with Flask" [level=3] [ref=e114]
+          - paragraph [ref=e115]: Build web applications using Flask.
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - img [ref=e118]
+              - text: Jane Smith
+            - generic [ref=e121]:
+              - img [ref=e122]
+              - text: 6 weeks
+          - generic [ref=e125]:
+            - generic [ref=e126]: Routing
+            - generic [ref=e127]: Templates
+            - generic [ref=e128]: Forms
+            - generic [ref=e129]: +1 more
+          - link "View Course →" [ref=e130] [cursor=pointer]:
+            - /url: /course/2
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: Intermediate
+            - generic [ref=e136]:
+              - img [ref=e137]
+              - text: "4.9"
+          - heading "Data Science Fundamentals" [level=3] [ref=e139]
+          - paragraph [ref=e140]: An introduction to data science concepts and tools.
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - img [ref=e143]
+              - text: Alice Johnson
+            - generic [ref=e146]:
+              - img [ref=e147]
+              - text: 8 weeks
+          - generic [ref=e150]:
+            - generic [ref=e151]: NumPy
+            - generic [ref=e152]: Pandas
+            - generic [ref=e153]: Matplotlib
+            - generic [ref=e154]: +1 more
+          - link "View Course →" [ref=e155] [cursor=pointer]:
+            - /url: /course/3
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: All Levels
+            - generic [ref=e161]:
+              - img [ref=e162]
+              - text: "4.9"
+          - heading "Go Programming Language" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Learn Go from the ground up, covering concurrency and web services.
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - img [ref=e168]
+              - text: Bob Lee
+            - generic [ref=e171]:
+              - img [ref=e172]
+              - text: 5 weeks
+          - generic [ref=e175]:
+            - generic [ref=e176]: Syntax and Types
+            - generic [ref=e177]: Goroutines
+            - generic [ref=e178]: Channels
+            - generic [ref=e179]: +1 more
+          - link "View Course →" [ref=e180] [cursor=pointer]:
+            - /url: /course/4
+  - contentinfo [ref=e181]:
+    - generic [ref=e182]:
+      - generic [ref=e183]: ◆ CodeLearn
+      - generic [ref=e184]: © 2026 CodeLearn Academy. All rights reserved.

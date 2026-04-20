@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_fill_form"
+      "mcp__playwright__browser_fill_form",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:5000/)",
+      "mcp__playwright__browser_tabs",
+      "Bash(curl *)",
+      "mcp__playwright__browser_run_code"
     ]
   }
 }

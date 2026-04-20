@@ -1,0 +1,2 @@
+- [CodeLearn App Overview](project_app_overview.md) — Pages, current design system, stack constraints (Flask+Jinja2, single CSS, no JS framework)
+- ['80s Retro Theme Design Decisions](project_retro_theme_design.md) — Palette, typography, CSS effects, component names for the synthwave redesign

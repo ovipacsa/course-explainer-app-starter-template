@@ -43,6 +43,7 @@ All course data is hardcoded as `Course` instances in `models.py`. There is no d
 ### Verify Changes with Playwright (MANDATORY)
 
 **After implementing any new feature, you MUST:**
+0. Ensure the Flask app is running by invoking the **ensure-app-running** skill. It checks `http://127.0.0.1:5000` and starts `python src/app.py` in the background if needed.
 1. Start the Flask application (if not running - `python src/app.py`)
 2. Use the Playwright MCP tool to connect to the application at `http://127.0.0.1:5000`
 3. Navigate to and interact with the new feature to verify it works correctly.

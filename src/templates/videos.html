@@ -1,24 +1,93 @@
 {% extends 'layout.html' %}
 
-{% block title %}Videos{% endblock %}
+{% block title %}Free Videos — CodeLearn{% endblock %}
+
+{% block main_class %}{% endblock %}
 
 {% block content %}
-<h1>Videos</h1>
-<div class="video-grid">
-  {% for video in videos %}
-  <div class="video-card">
-    <div class="video-embed">
-      <iframe
-        src="https://www.youtube.com/embed/{{ video.video_id }}"
-        title="{{ video.title }}"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="video-info">
-      <h3>{{ video.title }}</h3>
-      <p>{{ video.description }}</p>
+
+<div class="vp-hero">
+  <div class="vp-hero-inner">
+    <span class="vp-hero-badge">&#x1F4FA; Free Resources</span>
+    <h1 class="vp-hero-title">Learn From the Best,<br>Completely Free</h1>
+    <p class="vp-hero-subtitle">Hand-picked full-length tutorials from top educators. Watch, learn, and level up your skills — no signup required.</p>
+    <div class="vp-hero-stats">
+      <span class="vp-stat"><strong>{{ videos|length }}</strong> videos</span>
+      <span class="vp-stat-dot"></span>
+      <span class="vp-stat">Beginner to Advanced</span>
+      <span class="vp-stat-dot"></span>
+      <span class="vp-stat">Always free</span>
     </div>
   </div>
-  {% endfor %}
 </div>
+
+<div class="vp-content">
+
+  {% set categories = ['Python', 'Flask', 'Data Science', 'DevTools'] %}
+  {% set accents = ['vp-cat-1', 'vp-cat-2', 'vp-cat-3', 'vp-cat-4'] %}
+
+  {% if videos %}
+  <div class="vp-featured">
+    <div class="vp-featured-label">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Featured
+    </div>
+    <div class="vp-featured-card">
+      <div class="vp-featured-embed">
+        <iframe
+          src="https://www.youtube.com/embed/{{ videos[0].video_id }}"
+          title="{{ videos[0].title }}"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="vp-featured-info">
+        <span class="vp-cat-badge vp-cat-1">{{ categories[0] }}</span>
+        <h2 class="vp-featured-title">{{ videos[0].title }}</h2>
+        <p class="vp-featured-desc">{{ videos[0].description }}</p>
+        <div class="vp-featured-meta">
+          <span class="vp-free-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Free to watch
+          </span>
+          <span class="vp-full-course-pill">Full Course</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if videos|length > 1 %}
+  <div class="vp-section-header">
+    <h2 class="vp-section-title">More Videos</h2>
+    <span class="vp-section-accent"></span>
+  </div>
+  <div class="vp-grid">
+    {% for video in videos[1:] %}
+    <div class="vp-card">
+      <div class="vp-card-embed">
+        <iframe
+          src="https://www.youtube.com/embed/{{ video.video_id }}"
+          title="{{ video.title }}"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="vp-card-body">
+        <span class="vp-cat-badge {{ accents[loop.index] }}">{{ categories[loop.index] }}</span>
+        <h3 class="vp-card-title">{{ video.title }}</h3>
+        <p class="vp-card-desc">{{ video.description }}</p>
+        <div class="vp-card-footer">
+          <span class="vp-free-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Free
+          </span>
+          <span class="vp-full-course-pill">Full Course</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</div>
+
 {% endblock %}

@@ -4,29 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% block title %}Course Explainer{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="site-title">Course Explainer</h1>
+      <a href="{{ url_for('index') }}" class="site-logo">
+        <span class="logo-icon">&#9670;</span>
+        <span class="site-title">CodeLearn</span>
+      </a>
       <nav>
         <ul class="main-nav">
-          <li><a href="{{ url_for('index') }}">Home</a></li>
-          <li><a href="{{ url_for('course', course_id=1) }}">Course Details</a></li>
-          <li><a href="{{ url_for('videos') }}">Videos</a></li>
-          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('index') }}" class="{{ 'nav-active' if request.endpoint == 'index' }}">Home</a></li>
+          <li><a href="{{ url_for('course', course_id=1) }}" class="{{ 'nav-active' if request.endpoint == 'course' }}">Courses</a></li>
+          <li><a href="{{ url_for('videos') }}" class="{{ 'nav-active' if request.endpoint == 'videos_page' }}">Videos</a></li>
+          <li><a href="{{ url_for('contact') }}" class="{{ 'nav-active' if request.endpoint == 'contact' }}">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="{% block main_class %}container{% endblock %}">
     {% block content %}{% endblock %}
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">© 2023 Course Explainer App</div>
+    <div class="footer-inner">
+      <span class="footer-brand">&#9670; CodeLearn</span>
+      <span>© 2026 CodeLearn Academy. All rights reserved.</span>
+    </div>
   </footer>
 </body>
 </html>

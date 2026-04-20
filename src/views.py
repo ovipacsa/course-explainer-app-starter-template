@@ -9,7 +9,7 @@ def course(course_id):
         course = courses[int(course_id) - 1]
     except (IndexError, ValueError):
         abort(404)
-    return render_template('course.html', course=course)
+    return render_template('course.html', course=course, course_id=int(course_id))
 
 def videos_page():
     return render_template('videos.html', videos=videos)

@@ -1,18 +1,135 @@
 {% extends 'layout.html' %}
 
-{% block title %}{{ course.title }}{% endblock %}
+{% block title %}{{ course.title }} — CodeLearn{% endblock %}
+
+{% block main_class %}{% endblock %}
 
 {% block content %}
-<div class="course-details">
-    <h1>{{ course.title }}</h1>
-    <p>{{ course.description }}</p>
-    <h2>Instructor: {{ course.instructor }}</h2>
-    <h3>Duration: {{ course.duration }}</h3>
-    <h4>Topics Covered:</h4>
-    <ul>
-        {% for topic in course.topics %}
-            <li>{{ topic }}</li>
-        {% endfor %}
-    </ul>
+
+<div class="cd-hero cd-hero-accent-{{ course_id }}">
+  <div class="cd-hero-inner">
+    <nav class="cd-breadcrumb">
+      <a href="{{ url_for('index') }}">Home</a>
+      <span class="cd-breadcrumb-sep">›</span>
+      <a href="{{ url_for('index') }}#courses">Courses</a>
+      <span class="cd-breadcrumb-sep">›</span>
+      <span>{{ course.title }}</span>
+    </nav>
+
+    <div class="cd-hero-level-row">
+      <span class="cd-level-badge cd-level-{{ course_id }}">
+        {% if course_id == 1 %}Beginner{% elif course_id == 3 %}Intermediate{% else %}All Levels{% endif %}
+      </span>
+      <span class="cd-rating-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        4.9 rating
+      </span>
+    </div>
+
+    <h1 class="cd-hero-title">{{ course.title }}</h1>
+    <p class="cd-hero-desc">{{ course.description }}</p>
+
+    <div class="cd-hero-meta">
+      <span class="cd-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        {{ course.instructor }}
+      </span>
+      <span class="cd-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        {{ course.duration }}
+      </span>
+      <span class="cd-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        {{ course.topics|length }} topics
+      </span>
+    </div>
+  </div>
 </div>
+
+<div class="cd-layout">
+  <main class="cd-main">
+
+    <section class="cd-section">
+      <h2 class="cd-section-title">What You'll Learn</h2>
+      <div class="cd-learn-grid">
+        {% for topic in course.topics %}
+        <div class="cd-learn-item">
+          <span class="cd-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span>{{ topic }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cd-section">
+      <h2 class="cd-section-title">Course Curriculum</h2>
+      <div class="cd-curriculum">
+        {% for topic in course.topics %}
+        <div class="cd-module">
+          <span class="cd-module-num">{{ loop.index }}</span>
+          <div class="cd-module-info">
+            <span class="cd-module-title">{{ topic }}</span>
+            <span class="cd-module-meta">Module {{ loop.index }} of {{ course.topics|length }}</span>
+          </div>
+          <span class="cd-module-arrow">›</span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cd-section cd-instructor-section">
+      <h2 class="cd-section-title">About the Instructor</h2>
+      <div class="cd-instructor-card">
+        <div class="cd-instructor-avatar cd-avatar-{{ course_id }}">{{ course.instructor[0] }}</div>
+        <div class="cd-instructor-info">
+          <h3 class="cd-instructor-name">{{ course.instructor }}</h3>
+          <p class="cd-instructor-role">Senior Software Engineer &amp; Educator</p>
+          <p class="cd-instructor-bio">Experienced professional with a passion for teaching. Bringing real-world industry knowledge to help students build practical, job-ready skills.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="cd-sidebar">
+    <div class="cd-enroll-card">
+      <div class="cd-enroll-highlights">
+        <div class="cd-highlight-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <span class="cd-highlight-label">Duration</span>
+            <span class="cd-highlight-value">{{ course.duration }}</span>
+          </div>
+        </div>
+        <div class="cd-highlight-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div>
+            <span class="cd-highlight-label">Topics</span>
+            <span class="cd-highlight-value">{{ course.topics|length }} modules</span>
+          </div>
+        </div>
+        <div class="cd-highlight-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <span class="cd-highlight-label">Level</span>
+            <span class="cd-highlight-value">{% if course_id == 1 %}Beginner{% elif course_id == 3 %}Intermediate{% else %}All Levels{% endif %}</span>
+          </div>
+        </div>
+        <div class="cd-highlight-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <span class="cd-highlight-label">Access</span>
+            <span class="cd-highlight-value">Lifetime</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="btn-primary cd-enroll-btn">Start Learning &rarr;</a>
+      <a href="{{ url_for('index') }}#courses" class="cd-back-link">← Back to All Courses</a>
+    </div>
+  </aside>
+</div>
+
 {% endblock %}

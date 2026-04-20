@@ -15,11 +15,35 @@ class AppTestCase(unittest.TestCase):
     def test_index(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Welcome to the Course Explainer', response.data)
         self.assertIn(b'Introduction to Python', response.data)
         self.assertIn(b'Web Development with Flask', response.data)
         self.assertIn(b'Data Science Fundamentals', response.data)
         self.assertIn(b'Go Programming Language', response.data)
+
+    def test_index_hero_section(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'hero', response.data)
+        self.assertIn(b'Master Programming', response.data)
+        self.assertIn(b'Explore Courses', response.data)
+
+    def test_index_stats_bar(self):
+        response = self.app.get('/')
+        self.assertIn(b'stats-bar', response.data)
+        self.assertIn(b'Expert Instructors', response.data)
+        self.assertIn(b'Weeks of Content', response.data)
+
+    def test_index_course_cards(self):
+        response = self.app.get('/')
+        self.assertIn(b'course-card', response.data)
+        self.assertIn(b'View Course', response.data)
+        self.assertIn(b'John Doe', response.data)
+        self.assertIn(b'Jane Smith', response.data)
+
+    def test_index_topic_tags(self):
+        response = self.app.get('/')
+        self.assertIn(b'topic-tag', response.data)
+        self.assertIn(b'Variables and Data Types', response.data)
 
     def test_golang_course(self):
         response = self.app.get('/course/4')
@@ -29,7 +53,8 @@ class AppTestCase(unittest.TestCase):
     def test_course(self):
         response = self.app.get('/course/1')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Course Details', response.data)
+        self.assertIn(b'Introduction to Python', response.data)
+        self.assertIn(b'cd-hero', response.data)
 
     def test_videos(self):
         response = self.app.get('/videos')
